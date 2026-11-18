@@ -1,34 +1,45 @@
-<div
-  class="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200"
->
-  <div class="text-center">
-    <!-- TODO: replace everything here with the actual app! -->
-    <h1
-      class="text-2xl font-semibold text-slate-800 flex items-center justify-center gap-3"
-    >
-      <svg class="animate-spin h-8 w-8 text-slate-400" viewBox="0 0 50 50">
-        <circle
-          class="opacity-30"
-          cx="25"
-          cy="25"
-          r="20"
-          stroke="currentColor"
-          stroke-width="5"
-          fill="none"
-        />
-        <circle
-          class="text-slate-600"
-          cx="25"
-          cy="25"
-          r="20"
-          stroke="currentColor"
-          stroke-width="5"
-          fill="none"
-          stroke-dasharray="100"
-          stroke-dashoffset="75"
-        />
-      </svg>
-      Generating your app...
-    </h1>
+<a href="#main-content" class="skip-link">Skip to content</a>
+<header class="site-header">
+  <div class="header-inner container">
+    <a routerLink="/" class="brand-logo" aria-label="WebCoder home" (click)="menuOpen = false">
+      <img [src]="logoUrl" alt="WebCoder" />
+    </a>
+    <nav class="desktop-nav" aria-label="Main navigation">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+      <a routerLink="/about" routerLinkActive="active">About Us</a>
+      <a routerLink="/services" routerLinkActive="active">Services</a>
+      <a routerLink="/blog" routerLinkActive="active">Blog</a>
+      <a routerLink="/contact" routerLinkActive="active">Contact Us</a>
+    </nav>
+    <a routerLink="/contact" class="header-quote">Get a Quote <span aria-hidden="true">↗</span></a>
+    <button class="menu-toggle" type="button" (click)="menuOpen = !menuOpen" [attr.aria-expanded]="menuOpen" aria-controls="mobile-navigation" [attr.aria-label]="menuOpen ? 'Close menu' : 'Open menu'">
+      <span></span><span></span><span></span>
+    </button>
   </div>
-</div>
+  @if (menuOpen) {
+    <nav id="mobile-navigation" class="mobile-nav" aria-label="Mobile navigation">
+      <a routerLink="/" (click)="menuOpen = false">Home</a>
+      <a routerLink="/about" (click)="menuOpen = false">About Us</a>
+      <a routerLink="/services" (click)="menuOpen = false">Services</a>
+      <a routerLink="/blog" (click)="menuOpen = false">Blog</a>
+      <a routerLink="/contact" (click)="menuOpen = false">Contact Us</a>
+      <a routerLink="/contact" class="mobile-quote" (click)="menuOpen = false">Get a Quote <span aria-hidden="true">↗</span></a>
+    </nav>
+  }
+</header>
+<div id="main-content" tabindex="-1"><router-outlet /></div>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a routerLink="/" class="footer-logo" aria-label="WebCoder home"><img [src]="logoUrl" alt="WebCoder" /></a>
+        <p>Thoughtful digital solutions for the ideas, businesses, and people shaping what’s next.</p>
+        <span>Turning Ideas Into Digital Reality.</span>
+      </div>
+      <div class="footer-column"><h2>Explore</h2><a routerLink="/">Home</a><a routerLink="/about">About Us</a><a routerLink="/services">Services</a><a routerLink="/blog">Blog</a><a routerLink="/contact">Contact Us</a></div>
+      <div class="footer-column"><h2>Our services</h2><a routerLink="/services" fragment="web-development">Web Development</a><a routerLink="/services" fragment="crm-erp">CRM &amp; ERP Solutions</a><a routerLink="/services" fragment="mobile-applications">Mobile Applications</a><a routerLink="/services" fragment="ai-automation">AI Automation</a><a routerLink="/services" fragment="digital-marketing">Digital Marketing</a></div>
+      <div class="footer-column footer-contact"><h2>Let’s connect</h2><p>Have an idea? We’d love to hear about it.</p><a routerLink="/contact" class="footer-contact-link">Start a conversation <span aria-hidden="true">↗</span></a><p class="footer-note">Contact details and social channels will be shared when available.</p></div>
+    </div>
+    <div class="footer-bottom"><p>© {{ year }} WebCoder. All rights reserved.</p><div><a routerLink="/privacy">Privacy Policy</a><a routerLink="/terms">Terms &amp; Conditions</a></div><span>Made for what’s next <span class="footer-spark">✳</span></span></div>
+  </div>
+</footer>
