@@ -1,4 +1,6 @@
-import { Component, signal } from '@angular/core';
+import { Component, DestroyRef, inject, signal } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { interval } from 'rxjs';
 import { RouterLink } from '@angular/router';
 import { PROJECTS, ProjectGrid } from './work';
 
@@ -11,9 +13,27 @@ import { PROJECTS, ProjectGrid } from './work';
 export class HomePage {
   readonly featuredProjects = PROJECTS.slice(0, 3);
   readonly activeTestimonial = signal(0);
+  private readonly pausedTestimonialRotation = signal(false);
+  private readonly reducedMotion = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  constructor() {
+    interval(6000).pipe(takeUntilDestroyed(inject(DestroyRef))).subscribe(() => {
+      if (!this.pausedTestimonialRotation() && !this.reducedMotion) {
+        this.showTestimonial((this.activeTestimonial() + 1) % this.testimonials.length);
+      }
+    });
+  }
 
   showTestimonial(index: number): void {
     this.activeTestimonial.set(index);
+  }
+
+  pauseTestimonialRotation(): void {
+    this.pausedTestimonialRotation.set(true);
+  }
+
+  resumeTestimonialRotation(): void {
+    this.pausedTestimonialRotation.set(false);
   }
 
   readonly services = [
