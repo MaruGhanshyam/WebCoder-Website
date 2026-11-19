@@ -18,6 +18,11 @@ export class HomePage {
     { number: '04', icon: 'ai', title: 'AI Automation', description: 'Smarter workflows that give your team room to do more.', items: ['AI-Powered Automation', 'Business Workflow Automation', 'Chatbot Development', 'n8n Automation Integration'], id: 'ai-automation' },
     { number: '05', icon: 'marketing', title: 'Digital Marketing', description: 'Build your presence and connect with the right people.', items: ['Search Engine Optimization', 'Social Media Marketing', 'Google Ads', 'Online Brand Promotion'], id: 'digital-marketing' },
   ];
+  readonly testimonials = [
+    { quote: 'The process felt thoughtful and collaborative from the very beginning. Every step was clear, and the final experience feels polished and easy to use.', author: 'Sample client 01', project: 'Website project · Demo content' },
+    { quote: 'It was easy to share our goals and turn them into a digital experience that feels right for our business.', author: 'Sample client 02', project: 'Digital project · Demo content' },
+    { quote: 'A careful eye for detail and a practical approach made the whole project feel straightforward.', author: 'Sample client 03', project: 'Web development · Demo content' },
+  ];
   readonly reasons = [
     { title: 'Creative & modern solutions', text: 'Fresh thinking that makes your business stand out.' },
     { title: 'Customized development', text: 'Solutions shaped around your unique goals and needs.' },
