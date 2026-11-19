@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { PROJECTS, ProjectGrid } from './work';
 
@@ -10,6 +10,11 @@ import { PROJECTS, ProjectGrid } from './work';
 })
 export class HomePage {
   readonly featuredProjects = PROJECTS.slice(0, 3);
+  readonly activeTestimonial = signal(0);
+
+  showTestimonial(index: number): void {
+    this.activeTestimonial.set(index);
+  }
 
   readonly services = [
     { number: '01', icon: 'web', title: 'Web Development', description: 'Digital experiences that look great and work even better.', items: ['Business Websites', 'E-Commerce Websites', 'Custom Web Applications', 'WordPress Development'], id: 'web-development' },
