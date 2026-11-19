@@ -1,14 +1,15 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { PROJECTS, ProjectGrid } from './work';
 
 @Component({
   selector: 'app-home-page',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, ProjectGrid],
   templateUrl: './home.html'
 })
 export class HomePage {
-  expandedProject = '';
+  readonly featuredProjects = PROJECTS.slice(0, 3);
 
   readonly services = [
     { number: '01', icon: 'web', title: 'Web Development', description: 'Digital experiences that look great and work even better.', items: ['Business Websites', 'E-Commerce Websites', 'Custom Web Applications', 'WordPress Development'], id: 'web-development' },
@@ -39,7 +40,4 @@ export class HomePage {
     { mark: '✳', name: 'AI Tools' }, { mark: 'n', name: 'n8n' },
   ];
 
-  toggleProject(project: string): void {
-    this.expandedProject = this.expandedProject === project ? '' : project;
-  }
 }

@@ -1,11 +1,13 @@
 import { Routes } from '@angular/router';
 import { HomePage } from './home';
+import { WorkPage } from './work';
 import { AboutPage, ArticlePage, BlogPage, ContactPage, LegalPage, NotFoundPage, ServicesPage } from './pages';
 
 export const routes: Routes = [
   { path: '', component: HomePage, title: 'WebCoder | Digital Solutions for What’s Next' },
   { path: 'about', component: AboutPage, title: 'About Us | WebCoder' },
   { path: 'services', component: ServicesPage, title: 'Services | WebCoder' },
+  { path: 'work', component: WorkPage, title: 'Our Work | WebCoder' },
   { path: 'blog', component: BlogPage, title: 'Journal | WebCoder' },
   { path: 'blog/:slug', component: ArticlePage, title: 'Journal | WebCoder' },
   { path: 'contact', component: ContactPage, title: 'Contact Us | WebCoder' },
