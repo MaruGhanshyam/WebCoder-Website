@@ -359,7 +359,7 @@ export class ServicesPage {
       description: 'Thoughtful websites and web applications that help people find information, take action, and get things done.',
       features: ['Business and e-commerce websites', 'Custom web applications', 'WordPress development', 'Responsive and accessible experiences'],
       applications: 'Business websites, online stores, customer portals, booking journeys, and internal tools.',
-      technology: 'HTML5, CSS3, JavaScript, TypeScript, Angular, React, WordPress, WooCommerce, and PHP.',
+      technology: 'HTML5, CSS3, JavaScript, TypeScript, Angular, React, Next.js, WordPress, WooCommerce, PHP, and Laravel.',
     },
     {
       id: 'crm-erp', label: 'Connected operations', title: 'CRM & ERP',

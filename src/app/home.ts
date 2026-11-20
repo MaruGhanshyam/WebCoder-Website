@@ -66,7 +66,7 @@ export class HomePage {
   readonly technologies = [
     { mark: 'A', name: 'Angular' }, { mark: 'R', name: 'React JS' }, { mark: 'N', name: 'Next JS' }, { mark: 'V', name: 'Vue JS' },
     { mark: 'N', name: 'Node JS' }, { mark: 'JS', name: 'JavaScript' }, { mark: 'TS', name: 'TypeScript' }, { mark: 'php', name: 'PHP' },
-    { mark: 'W', name: 'WordPress' }, { mark: 'W', name: 'WooCommerce' }, { mark: '.N', name: '.NET' }, { mark: 'M', name: 'MySQL' },
+    { mark: 'L', name: 'Laravel' }, { mark: 'W', name: 'WordPress' }, { mark: 'W', name: 'WooCommerce' }, { mark: '.N', name: '.NET' }, { mark: 'M', name: 'MySQL' },
     { mark: 'F', name: 'Flutter' }, { mark: '✳', name: 'AI Tools' }, { mark: 'n', name: 'n8n' },
   ];
 
