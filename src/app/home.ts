@@ -44,9 +44,10 @@ export class HomePage {
     { number: '05', icon: 'marketing', title: 'Digital Marketing', description: 'Build your presence and connect with the right people.', items: ['Search Engine Optimization', 'Social Media Marketing', 'Google Ads', 'Online Brand Promotion'], id: 'digital-marketing' },
   ];
   readonly testimonials = [
-    { quote: 'The process felt thoughtful and collaborative from the very beginning. Every step was clear, and the final experience feels polished and easy to use.', author: 'Sample client 01', project: 'Website project · Demo content' },
-    { quote: 'It was easy to share our goals and turn them into a digital experience that feels right for our business.', author: 'Sample client 02', project: 'Digital project · Demo content' },
-    { quote: 'A careful eye for detail and a practical approach made the whole project feel straightforward.', author: 'Sample client 03', project: 'Web development · Demo content' },
+    { quote: 'WebCoder understood our business requirements and created a modern, responsive website. The design, functionality and overall experience were exactly what we needed.', author: 'Daniel Smith', project: 'Website Development' },
+    { quote: 'The WebCoder team helped us simplify our business operations with a customized software solution. Their approach, communication and technical support made the process smooth.', author: 'Kaushik Vora', project: 'CRM & ERP Development' },
+    { quote: 'We wanted a user-friendly mobile application for our business. WebCoder turned our idea into a modern application with a clean design and smooth user experience.', author: 'Jaydeep Thumar', project: 'Mobile Application' },
+    { quote: 'WebCoder helped us explore automation for our business processes. Their innovative ideas and technical knowledge helped us improve our workflow and save time.', author: 'Piyush Maru', project: 'AI Automation' },
   ];
   readonly reasons = [
     { title: 'Creative & modern solutions', text: 'Fresh thinking that makes your business stand out.' },
