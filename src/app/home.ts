@@ -64,10 +64,10 @@ export class HomePage {
     { number: '05', title: 'Grow', text: 'We support what’s next as your business evolves.' },
   ];
   readonly technologies = [
-    { mark: '5', name: 'HTML5' }, { mark: '3', name: 'CSS3' }, { mark: 'JS', name: 'JavaScript' }, { mark: 'TS', name: 'TypeScript' },
-    { mark: 'A', name: 'Angular' }, { mark: 'R', name: 'React' }, { mark: 'W', name: 'WordPress' }, { mark: 'W', name: 'WooCommerce' },
-    { mark: 'php', name: 'PHP' }, { mark: '.N', name: '.NET' }, { mark: 'F', name: 'Flutter' }, { mark: 'M', name: 'MySQL' },
-    { mark: '✳', name: 'AI Tools' }, { mark: 'n', name: 'n8n' },
+    { mark: 'A', name: 'Angular' }, { mark: 'R', name: 'React JS' }, { mark: 'N', name: 'Next JS' }, { mark: 'V', name: 'Vue JS' },
+    { mark: 'N', name: 'Node JS' }, { mark: 'JS', name: 'JavaScript' }, { mark: 'TS', name: 'TypeScript' }, { mark: 'php', name: 'PHP' },
+    { mark: 'W', name: 'WordPress' }, { mark: 'W', name: 'WooCommerce' }, { mark: '.N', name: '.NET' }, { mark: 'M', name: 'MySQL' },
+    { mark: 'F', name: 'Flutter' }, { mark: '✳', name: 'AI Tools' }, { mark: 'n', name: 'n8n' },
   ];
 
 }
