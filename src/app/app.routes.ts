@@ -4,14 +4,14 @@ import { WorkPage } from './work';
 import { AboutPage, ArticlePage, BlogPage, ContactPage, LegalPage, NotFoundPage, ServicesPage } from './pages';
 
 export const routes: Routes = [
-  { path: '', component: HomePage, title: 'WebCoder | Digital Solutions for What’s Next' },
-  { path: 'about', component: AboutPage, title: 'About Us | WebCoder' },
-  { path: 'services', component: ServicesPage, title: 'Services | WebCoder' },
-  { path: 'work', component: WorkPage, title: 'Our Work | WebCoder' },
-  { path: 'blog', component: BlogPage, title: 'Journal | WebCoder' },
-  { path: 'blog/:slug', component: ArticlePage, title: 'Journal | WebCoder' },
-  { path: 'contact', component: ContactPage, title: 'Contact Us | WebCoder' },
-  { path: 'privacy', component: LegalPage, title: 'Privacy Notice | WebCoder' },
-  { path: 'terms', component: LegalPage, title: 'Terms of Use | WebCoder' },
-  { path: '**', component: NotFoundPage, title: 'Page Not Found | WebCoder' },
+  { path: '', component: HomePage, title: 'WebCoder | Web Development, Software & Digital Solutions', data: { description: 'WebCoder builds custom websites, business software, mobile applications, and AI automation to help businesses grow online.', keywords: 'web development company, website design, custom software development, mobile app development, CRM ERP solutions, AI automation, digital marketing, WebCoder' } },
+  { path: 'about', component: AboutPage, title: 'About WebCoder | Digital Solutions Company', data: { description: 'Get to know WebCoder, a digital solutions company focused on thoughtful web development, software, mobile apps, and automation.', keywords: 'about WebCoder, digital solutions company, web development team, software development services' } },
+  { path: 'services', component: ServicesPage, title: 'Web Development & IT Services | WebCoder', data: { description: 'Explore WebCoder services: website development, CRM and ERP systems, mobile app development, AI automation, and digital marketing.', keywords: 'web development services, CRM ERP software, mobile app development, AI automation services, n8n integration, digital marketing, WordPress development' } },
+  { path: 'work', component: WorkPage, title: 'Web Development Portfolio | WebCoder', data: { description: 'Explore WebCoder website projects, including WordPress websites and responsive Angular experiences for businesses.', keywords: 'web development portfolio, website design portfolio, WordPress website projects, Angular website development, business websites' } },
+  { path: 'blog', component: BlogPage, title: 'Web Development & Technology Blog | WebCoder', data: { description: 'Read practical guides about web development, WordPress, CRM and ERP systems, mobile apps, AI automation, and digital marketing.', keywords: 'web development blog, WordPress tips, CRM ERP guide, mobile app development, AI automation, digital marketing, technology articles' } },
+  { path: 'blog/:slug', component: ArticlePage, title: 'WebCoder Article', data: { description: 'Read practical technology and digital business guidance from the WebCoder journal.', keywords: 'web development guide, technology article, digital business advice, WebCoder', type: 'article' } },
+  { path: 'contact', component: ContactPage, title: 'Contact WebCoder | Request a Project Quote', data: { description: 'Contact WebCoder to discuss a website, software, mobile application, automation, or digital marketing project.', keywords: 'contact web development company, website project quote, software development consultation, WebCoder contact' } },
+  { path: 'privacy', component: LegalPage, title: 'Privacy Notice | WebCoder', data: { description: 'Review the WebCoder website privacy notice draft.', keywords: 'WebCoder privacy notice, website privacy' } },
+  { path: 'terms', component: LegalPage, title: 'Terms of Use | WebCoder', data: { description: 'Review the WebCoder website terms of use draft.', keywords: 'WebCoder terms of use, website terms' } },
+  { path: '**', component: NotFoundPage, title: 'Page Not Found | WebCoder', data: { description: 'The page you are looking for could not be found.', keywords: 'WebCoder page not found', robots: 'noindex, follow' } },
 ];
