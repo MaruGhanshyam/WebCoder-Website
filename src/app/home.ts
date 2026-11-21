@@ -44,10 +44,10 @@ export class HomePage {
     { number: '05', icon: 'marketing', title: 'Digital Marketing', description: 'Build your presence and connect with the right people.', items: ['Search Engine Optimization', 'Social Media Marketing', 'Google Ads', 'Online Brand Promotion'], id: 'digital-marketing' },
   ];
   readonly testimonials = [
-    { quote: 'WebCoder understood our business requirements and created a modern, responsive website. The design, functionality and overall experience were exactly what we needed.' },
-    { quote: 'The WebCoder team helped us simplify our business operations with a customized software solution. Their approach, communication and technical support made the process smooth.' },
-    { quote: 'We wanted a user-friendly mobile application for our business. WebCoder turned our idea into a modern application with a clean design and smooth user experience.' },
-    { quote: 'WebCoder helped us explore automation for our business processes. Their innovative ideas and technical knowledge helped us improve our workflow and save time.' },
+    { quote: 'WebCoder understood our business requirements and created a modern, responsive website. The design, functionality and overall experience were exactly what we needed.', author: 'Daniel Smith', project: 'Website Development' },
+    { quote: 'The WebCoder team helped us simplify our business operations with a customized software solution. Their approach, communication and technical support made the process smooth.', author: 'Kaushik Vora', project: 'CRM & ERP Development' },
+    { quote: 'We wanted a user-friendly mobile application for our business. WebCoder turned our idea into a modern application with a clean design and smooth user experience.', author: 'Jaydeep Thumar', project: 'Mobile Application' },
+    { quote: 'WebCoder helped us explore automation for our business processes. Their innovative ideas and technical knowledge helped us improve our workflow and save time.', author: 'Piyush Maru', project: 'AI Automation' },
   ];
   readonly reasons = [
     { title: 'Creative & modern solutions', text: 'Fresh thinking that makes your business stand out.' },
