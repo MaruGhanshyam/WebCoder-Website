@@ -525,14 +525,16 @@ export class ArticlePage {
       <section class="section">
         <div class="container grid gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:gap-20">
           <aside>
-            <p class="eyebrow mb-4">Start with a hello</p><h2 class="section-title">A good conversation starts here.</h2><p class="section-copy mt-5 leading-8">Share the details you have—even if your idea is still taking shape. The form creates a text inquiry you can save for later.</p>
+            <p class="eyebrow mb-4">Start with a hello</p><h2 class="section-title">A good conversation starts here.</h2><p class="section-copy mt-5 leading-8">Share the details you have—even if your idea is still taking shape. Your inquiry will be sent to WebCoder by email.</p>
             <div class="mt-8 rounded-2xl bg-[#f4f8fa] p-6"><h3 class="font-semibold text-[#0d354b]">Contact details</h3><dl class="mt-5 space-y-4 text-sm"><div><dt class="font-semibold text-[#0d354b]">Email</dt><dd class="mt-1 leading-6 text-slate-600"><a class="text-link" href="mailto:webcoder37&#64;gmail.com">webcoder37&#64;gmail.com</a></dd></div><div><dt class="font-semibold text-[#0d354b]">Phone</dt><dd class="mt-1 leading-6 text-slate-600"><a class="text-link" href="tel:+918238430102">+91 82384 30102</a></dd></div></dl></div>
-            <p class="mt-6 text-sm leading-6 text-slate-500">Online delivery requires a connected form endpoint. No inquiry is sent from this page.</p>
+            <p class="mt-6 text-sm leading-6 text-slate-500">Your message is delivered using Web3Forms. Please do not include sensitive personal or financial information.</p>
           </aside>
           <div class="surface-card rounded-2xl border border-slate-200 bg-white p-6 sm:p-10">
-            <div class="border-b border-slate-200 pb-7"><p class="text-xs font-bold uppercase tracking-[0.16em] text-[#ed1c24]">Your project</p><h2 class="mt-3 text-2xl font-semibold text-[#0d354b]">Tell us a little more.</h2><p class="section-copy mt-2 text-sm leading-6">Fields marked required are needed to prepare your inquiry.</p></div>
-            <form #inquiryForm="ngForm" (ngSubmit)="downloadInquiry(inquiryForm)" novalidate class="mt-7 space-y-6">
+            <div class="border-b border-slate-200 pb-7"><p class="text-xs font-bold uppercase tracking-[0.16em] text-[#ed1c24]">Your project</p><h2 class="mt-3 text-2xl font-semibold text-[#0d354b]">Tell us a little more.</h2><p class="section-copy mt-2 text-sm leading-6">Fields marked required are needed to send your inquiry.</p></div>
+            <form #inquiryForm="ngForm" (ngSubmit)="sendInquiry(inquiryForm)" novalidate class="mt-7 space-y-6">
               @if (inquiryForm.submitted && inquiryForm.invalid) {<div role="alert" class="rounded-lg border border-red-200 bg-red-50 p-4 text-sm leading-6 text-red-800">Please check the required fields and correct the errors below.</div>}
+              @if (submissionState === 'success') {<div role="status" class="rounded-lg border border-emerald-200 bg-emerald-50 p-4 text-sm leading-6 text-emerald-800">Your inquiry was sent successfully. Thank you for reaching out.</div>}
+              @if (submissionState === 'error') {<div role="alert" class="rounded-lg border border-red-200 bg-red-50 p-4 text-sm leading-6 text-red-800">We couldn't send your inquiry. Please try again or email <a class="font-semibold underline" href="mailto:webcoder37&#64;gmail.com">webcoder37&#64;gmail.com</a>.</div>}
               <div class="grid gap-6 sm:grid-cols-2">
                 <div class="form-field"><label for="contact-name" class="mb-2 block text-sm font-semibold text-[#0d354b]">Name <span class="text-[#ed1c24]">(required)</span></label><input id="contact-name" name="name" type="text" autocomplete="name" required maxlength="100" pattern=".*\\S.*" [(ngModel)]="inquiry.name" #nameField="ngModel" [attr.aria-invalid]="nameField.invalid && (nameField.touched || inquiryForm.submitted) ? 'true' : null" [attr.aria-describedby]="nameField.invalid && (nameField.touched || inquiryForm.submitted) ? 'name-error' : null" class="form-input w-full" placeholder="Your name" />@if (nameField.invalid && (nameField.touched || inquiryForm.submitted)) {<p id="name-error" class="mt-2 text-sm text-red-700">Enter your name.</p>}</div>
                 <div class="form-field"><label for="contact-email" class="mb-2 block text-sm font-semibold text-[#0d354b]">Email <span class="text-[#ed1c24]">(required)</span></label><input id="contact-email" name="email" type="email" autocomplete="email" required email maxlength="254" [(ngModel)]="inquiry.email" #emailField="ngModel" [attr.aria-invalid]="emailField.invalid && (emailField.touched || inquiryForm.submitted) ? 'true' : null" [attr.aria-describedby]="emailField.invalid && (emailField.touched || inquiryForm.submitted) ? 'email-error' : null" class="form-input w-full" placeholder="Your email address" />@if (emailField.invalid && (emailField.touched || inquiryForm.submitted)) {<p id="email-error" class="mt-2 text-sm text-red-700">Enter a valid email address.</p>}</div>
@@ -542,8 +544,7 @@ export class ArticlePage {
                 <div class="form-field"><label for="contact-budget" class="mb-2 block text-sm font-semibold text-[#0d354b]">Budget <span class="font-normal text-slate-500">(optional)</span></label><input id="contact-budget" name="budget" type="text" maxlength="100" [(ngModel)]="inquiry.budget" class="form-input w-full" placeholder="A range, or still deciding" /></div>
               </div>
               <div class="form-field"><label for="contact-description" class="mb-2 block text-sm font-semibold text-[#0d354b]">Project description <span class="text-[#ed1c24]">(required)</span></label><textarea id="contact-description" name="description" rows="6" required minlength="10" maxlength="5000" pattern="[\\s\\S]*\\S[\\s\\S]{8,}\\S[\\s\\S]*" [(ngModel)]="inquiry.description" #descriptionField="ngModel" [attr.aria-invalid]="descriptionField.invalid && (descriptionField.touched || inquiryForm.submitted) ? 'true' : null" [attr.aria-describedby]="descriptionField.invalid && (descriptionField.touched || inquiryForm.submitted) ? 'description-hint description-error' : 'description-hint'" class="form-input w-full" placeholder="What would you like to build or improve?"></textarea><p id="description-hint" class="mt-2 text-sm text-slate-500">Share your goals, timeline, or anything else that feels helpful. Please avoid sensitive information.</p>@if (descriptionField.invalid && (descriptionField.touched || inquiryForm.submitted)) {<p id="description-error" class="mt-2 text-sm text-red-700">Add a project description of at least 10 characters.</p>}</div>
-              <div><button type="submit" class="button button-primary">Download inquiry <span aria-hidden="true">↓</span></button><p class="mt-3 text-sm leading-6 text-slate-500">This saves a text file on your device; it does not send your information.</p></div>
-              @if (downloadRequested) {<p role="status" class="rounded-lg bg-[#f4f8fa] p-4 text-sm leading-6 text-[#0d354b]">Your browser was asked to download your inquiry. Nothing has been sent; online delivery requires a connected form endpoint.</p>}
+              <div><button type="submit" [disabled]="submissionState === 'sending'" class="button button-primary disabled:cursor-not-allowed disabled:opacity-60">{{ submissionState === 'sending' ? 'Sending…' : 'Send inquiry' }} <span aria-hidden="true">↗</span></button></div>
             </form>
           </div>
         </div>
@@ -553,8 +554,9 @@ export class ArticlePage {
 })
 export class ContactPage {
   readonly services = ['Web Development', 'CRM & ERP', 'Mobile Applications', 'AI Automation', 'Digital Marketing'];
+  readonly web3FormsAccessKey = '1cbfb6fe-b03f-49b9-bf60-3588d08c737b';
   inquiry = { name: '', email: '', phone: '', company: '', service: '', budget: '', description: '' };
-  downloadRequested = false;
+  submissionState: 'idle' | 'sending' | 'success' | 'error' = 'idle';
 
   constructor() {
     inject(ActivatedRoute).queryParamMap.pipe(takeUntilDestroyed()).subscribe((params) => {
@@ -563,38 +565,37 @@ export class ContactPage {
     });
   }
 
-  downloadInquiry(form: NgForm): void {
-    this.downloadRequested = false;
+  async sendInquiry(form: NgForm): Promise<void> {
+    this.submissionState = 'idle';
     if (form.invalid) {
       form.control.markAllAsTouched();
       return;
     }
 
-    const inquiry = this.inquiry;
-    const text = [
-      'WebCoder project inquiry',
-      'This is a saved copy. It has not been sent.',
-      '',
-      `Name: ${inquiry.name.trim()}`,
-      `Email: ${inquiry.email.trim()}`,
-      `Phone: ${inquiry.phone.trim() || 'Not provided'}`,
-      `Company: ${inquiry.company.trim() || 'Not provided'}`,
-      `Service: ${inquiry.service}`,
-      `Budget: ${inquiry.budget.trim() || 'Not provided'}`,
-      '',
-      'Project description:',
-      inquiry.description.trim(),
-      '',
-    ].join('\n');
-    const url = URL.createObjectURL(new Blob([text], { type: 'text/plain;charset=utf-8' }));
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = 'webcoder-project-inquiry.txt';
-    document.body.appendChild(link);
-    link.click();
-    link.remove();
-    setTimeout(() => URL.revokeObjectURL(url), 1000);
-    this.downloadRequested = true;
+    this.submissionState = 'sending';
+    const name = this.inquiry.name.trim();
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: this.web3FormsAccessKey,
+          subject: `New project inquiry from ${name}`,
+          from_name: 'WebCoder Website',
+          name,
+          email: this.inquiry.email.trim(),
+          phone: this.inquiry.phone.trim(),
+          company: this.inquiry.company.trim(),
+          service: this.inquiry.service,
+          budget: this.inquiry.budget.trim(),
+          message: this.inquiry.description.trim(),
+        }),
+      });
+      const result = await response.json() as { success?: boolean };
+      this.submissionState = response.ok && result.success ? 'success' : 'error';
+    } catch {
+      this.submissionState = 'error';
+    }
   }
 }
 
@@ -615,7 +616,7 @@ export class ContactPage {
             <section><h2 class="text-2xl font-semibold text-[#0d354b]">Further details to complete</h2><p class="section-copy mt-4 leading-8">Review applicable disclaimers, limits of liability, dispute procedures, governing law, and a reliable contact method with legal counsel. These details have not yet been supplied.</p></section>
           } @else {
             <section><h2 class="text-2xl font-semibold text-[#0d354b]">About this notice</h2><p class="section-copy mt-4 leading-8">This draft describes information the website owner should review when preparing a privacy notice. The responsible organization, contact details, applicable laws, and actual data practices must be confirmed before publication.</p></section>
-            <section><h2 class="text-2xl font-semibold text-[#0d354b]">Information you provide</h2><p class="section-copy mt-4 leading-8">The inquiry form currently creates a text file on your device and does not send it to WebCoder. If online delivery is added, the final notice should explain what information is collected, why it is needed, how it is protected, and how long it is retained.</p></section>
+            <section><h2 class="text-2xl font-semibold text-[#0d354b]">Information you provide</h2><p class="section-copy mt-4 leading-8">When you submit the contact form, the information you provide—including your name, email, optional phone and company, selected service, budget, and project description—is sent to Web3Forms for delivery to WebCoder. Avoid including sensitive personal or financial information. Review Web3Forms' privacy and data-handling terms before publishing this notice.</p></section>
             <section><h2 class="text-2xl font-semibold text-[#0d354b]">Cookies, analytics, and service providers</h2><p class="section-copy mt-4 leading-8">The website owner should document any cookies, analytics, hosting, or third-party services actually used, including their purposes and any required consent choices. This draft does not assert which tools are enabled.</p></section>
             <section><h2 class="text-2xl font-semibold text-[#0d354b]">Your choices and contact</h2><p class="section-copy mt-4 leading-8">The final notice should explain applicable privacy rights, how to exercise them, and how to contact the responsible organization. Contact details and response procedures remain to be confirmed.</p></section>
           }
