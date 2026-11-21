@@ -527,7 +527,6 @@ export class ArticlePage {
           <aside>
             <p class="eyebrow mb-4">Start with a hello</p><h2 class="section-title">A good conversation starts here.</h2><p class="section-copy mt-5 leading-8">Share the details you have—even if your idea is still taking shape. Your inquiry will be sent to WebCoder by email.</p>
             <div class="mt-8 rounded-2xl bg-[#f4f8fa] p-6"><h3 class="font-semibold text-[#0d354b]">Contact details</h3><dl class="mt-5 space-y-4 text-sm"><div><dt class="font-semibold text-[#0d354b]">Email</dt><dd class="mt-1 leading-6 text-slate-600"><a class="text-link" href="mailto:webcoder37&#64;gmail.com">webcoder37&#64;gmail.com</a></dd></div><div><dt class="font-semibold text-[#0d354b]">Phone</dt><dd class="mt-1 leading-6 text-slate-600"><a class="text-link" href="tel:+918238430102">+91 82384 30102</a></dd></div></dl></div>
-            <p class="mt-6 text-sm leading-6 text-slate-500">Your message is delivered using Web3Forms. Please do not include sensitive personal or financial information.</p>
           </aside>
           <div class="surface-card rounded-2xl border border-slate-200 bg-white p-6 sm:p-10">
             <div class="border-b border-slate-200 pb-7"><p class="text-xs font-bold uppercase tracking-[0.16em] text-[#ed1c24]">Your project</p><h2 class="mt-3 text-2xl font-semibold text-[#0d354b]">Tell us a little more.</h2><p class="section-copy mt-2 text-sm leading-6">Fields marked required are needed to send your inquiry.</p></div>
@@ -592,7 +591,13 @@ export class ContactPage {
         }),
       });
       const result = await response.json() as { success?: boolean };
-      this.submissionState = response.ok && result.success ? 'success' : 'error';
+      if (response.ok && result.success) {
+        this.inquiry = { name: '', email: '', phone: '', company: '', service: '', budget: '', description: '' };
+        form.resetForm(this.inquiry);
+        this.submissionState = 'success';
+      } else {
+        this.submissionState = 'error';
+      }
     } catch {
       this.submissionState = 'error';
     }
