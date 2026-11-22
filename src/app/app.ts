@@ -19,7 +19,7 @@ interface PageMetadata {
   styleUrl: './app.css'
 })
 export class App {
-  readonly logoUrl = 'https://cdn.builder.io/api/v1/image/assets%2Fc842a2f8e5074740934598f0bdabdeb5%2F58d024fa2e574a83aec480f7a181af2d?format=webp&width=800&height=1200';
+  readonly logoUrl = 'assets/logo.svg';
   menuOpen = false;
   readonly year = new Date().getFullYear();
   private readonly router = inject(Router);

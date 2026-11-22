@@ -21,5 +21,6 @@ describe('App', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('nav[aria-label="Main navigation"]')?.textContent).toContain('Services');
     expect(compiled.querySelector('img')?.getAttribute('alt')).toBe('WebCoder');
+    expect(compiled.querySelector('img')?.getAttribute('src')).toBe('assets/logo.svg');
   });
 });
