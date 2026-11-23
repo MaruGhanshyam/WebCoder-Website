@@ -99,8 +99,6 @@ export const PROJECTS: Project[] = [
           </div>
           @if (project.url) {
             <a class="project-visit" [href]="project.url" target="_blank" rel="noopener noreferrer">Visit website <span aria-hidden="true">↗</span></a>
-          } @else {
-            <span class="project-unavailable">Website link not available</span>
           }
         </article>
       }
