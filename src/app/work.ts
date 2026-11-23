@@ -12,6 +12,12 @@ interface Project {
 
 export const PROJECTS: Project[] = [
   {
+    title: 'Hack Your Ride', category: 'WordPress website',
+    description: 'A responsive WordPress website showcasing the Hack Your Ride brand across desktop and mobile.',
+    image: 'https://cdn.builder.io/api/v1/image/assets%2Fc842a2f8e5074740934598f0bdabdeb5%2F6ab89787ea4e49a1b4c0baa32be6b147?format=webp&width=800&height=1200',
+    imageAlt: 'Hack Your Ride WordPress website shown across desktop, tablet, and mobile', url: 'https://hackyourride.de/'
+  },
+  {
     title: 'Elevatech Digital', category: 'WordPress website',
     description: 'A digital marketing agency website for a trusted service provider in Rajkot, India.',
     image: 'https://cdn.builder.io/api/v1/image/assets%2Fc842a2f8e5074740934598f0bdabdeb5%2F11091c0267ad4d73bcf3fce5b02641b5?format=webp&width=800&height=1200',
@@ -102,7 +108,7 @@ export class ProjectGrid {
       <section class="page-hero work-page-hero">
         <div class="container work-page-hero-inner">
           <div><p class="eyebrow"><span></span> OUR WORK</p><h1>Ideas brought to life<span>.</span></h1></div>
-          <div><p>Thoughtful websites built for different businesses, audiences, and ambitions. Explore a selection of the work behind the screen.</p><span class="work-page-count">SELECTED PROJECTS / 01—08</span></div>
+          <div><p>Thoughtful websites built for different businesses, audiences, and ambitions. Explore a selection of the work behind the screen.</p><span class="work-page-count">SELECTED PROJECTS / 01—09</span></div>
         </div>
       </section>
       <section class="section work-page-section">
