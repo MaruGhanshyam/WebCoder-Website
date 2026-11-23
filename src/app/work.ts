@@ -18,6 +18,12 @@ export const PROJECTS: Project[] = [
     imageAlt: 'Hack Your Ride WordPress website shown across desktop, tablet, and mobile', url: 'https://hackyourride.de/'
   },
   {
+    title: 'Studio Oura', category: 'WordPress website',
+    description: 'A wellness studio website presenting holistic wellness, mindful movement, and community.',
+    image: 'https://cdn.builder.io/api/v1/image/assets%2Fc842a2f8e5074740934598f0bdabdeb5%2F642b6985fd1840e294d873501aa34a4a?format=webp&width=800&height=1200',
+    imageAlt: 'Studio Oura wellness website shown on desktop, tablet, and mobile', url: 'https://studiooura.in/'
+  },
+  {
     title: 'Elevatech Digital', category: 'WordPress website',
     description: 'A digital marketing agency website for a trusted service provider in Rajkot, India.',
     image: 'https://cdn.builder.io/api/v1/image/assets%2Fc842a2f8e5074740934598f0bdabdeb5%2F11091c0267ad4d73bcf3fce5b02641b5?format=webp&width=800&height=1200',
@@ -108,7 +114,7 @@ export class ProjectGrid {
       <section class="page-hero work-page-hero">
         <div class="container work-page-hero-inner">
           <div><p class="eyebrow"><span></span> OUR WORK</p><h1>Ideas brought to life<span>.</span></h1></div>
-          <div><p>Thoughtful websites built for different businesses, audiences, and ambitions. Explore a selection of the work behind the screen.</p><span class="work-page-count">SELECTED PROJECTS / 01—09</span></div>
+          <div><p>Thoughtful websites built for different businesses, audiences, and ambitions. Explore a selection of the work behind the screen.</p><span class="work-page-count">SELECTED PROJECTS / 01—10</span></div>
         </div>
       </section>
       <section class="section work-page-section">
